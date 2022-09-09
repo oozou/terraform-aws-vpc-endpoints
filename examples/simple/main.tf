@@ -1,6 +1,6 @@
 # interface endpoint
 module "interface_endpoints" {
-  source = "git::ssh://git@github.com:oozou/terraform-aws-vpc-endpoints.git"
+  source = "../../"
 
   vpc_id             = module.vpc.vpc_id
   security_group_ids = ["sg-12345678"]
@@ -27,7 +27,7 @@ module "interface_endpoints" {
 
 # gateway endpoint
 module "gateway_endpoint" {
-  source = "git::ssh://git@github.com:oozou/terraform-aws-vpc-endpoints.git"
+  source = "../../"
 
   vpc_id             = module.vpc.vpc_id
   security_group_ids = [""]
