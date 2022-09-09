@@ -1,6 +1,6 @@
-# AWS VPC Peering Terraform Module
+# AWS VPC Endpoint Module
 
-Terraform module with vpc peering and route table resources on AWS.
+Terraform module with vpc Endpoint that supports both Interface and Gateway endpoints.
 
 ## Usage
 
