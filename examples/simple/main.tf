@@ -2,7 +2,7 @@
 module "interface_endpoints" {
   source = "git::ssh://git@github.com:oozou/terraform-aws-vpc-endpoints.git"
 
-  vpc_id             = "vpc-12345678"
+  vpc_id             = module.vpc.vpc_id
   security_group_ids = ["sg-12345678"]
   environment        = "dev"
   endpoints = {
@@ -15,7 +15,7 @@ module "interface_endpoints" {
       service             = "sqs"
       private_dns_enabled = true
       security_group_ids  = ["sg-987654321"]
-      subnet_ids          = ["subnet-12345678", "subnet-87654321"]
+      subnet_ids          = module.vpc.private_subnet_ids
       tags                = { Name = "sqs-vpc-endpoint" }
     }
   }
@@ -29,7 +29,7 @@ module "interface_endpoints" {
 module "gateway_endpoint" {
   source = "git::ssh://git@github.com:oozou/terraform-aws-vpc-endpoints.git"
 
-  vpc_id             = "vpc-12345678"
+  vpc_id             = module.vpc.vpc_id
   security_group_ids = [""]
   environment        = "dev"
   endpoints = {
