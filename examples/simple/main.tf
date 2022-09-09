@@ -4,7 +4,7 @@ module "interface_endpoints" {
 
   vpc_id             = module.vpc.vpc_id
   security_group_ids = ["sg-12345678"]
-  environment        = "dev"
+  environment        = var.environment
   endpoints = {
     s3 = {
       # interface endpoint
@@ -20,9 +20,7 @@ module "interface_endpoints" {
     }
   }
 
-  tags = {
-    custom = "true"
-  }
+  tags = var.custom_tags
 }
 
 # gateway endpoint
@@ -31,7 +29,7 @@ module "gateway_endpoint" {
 
   vpc_id             = module.vpc.vpc_id
   security_group_ids = [""]
-  environment        = "dev"
+  environment        = var.environment
   endpoints = {
     s3 = {
       # gateway endpoint
@@ -42,7 +40,5 @@ module "gateway_endpoint" {
     }
   }
 
-  tags = {
-    custom = "true"
-  }
+  tags = var.custom_tags
 }
