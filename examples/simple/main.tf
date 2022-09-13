@@ -2,9 +2,9 @@
 module "interface_endpoints" {
   source = "../../"
 
-  vpc_id = module.vpc.vpc_id
+  vpc_id             = module.vpc.vpc_id
   security_group_ids = ["sg-12345678"]
-  environment = var.environment
+  environment        = var.environment
   endpoints = {
     s3 = {
       # interface endpoint

@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_all_internal" {
-  count = var.is_create_default_security_group ? 1 : 0
+  count       = var.is_create_default_security_group ? 1 : 0
   name        = "allow_all_internal"
   description = "Allow All inbound traffic"
   vpc_id      = var.vpc_id
