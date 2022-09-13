@@ -8,8 +8,8 @@ module "interface_endpoints" {
   endpoints = {
     s3 = {
       # interface endpoint
-      service             = "s3"
-      tags                = { Name = "s3-vpc-endpoint" }
+      service = "s3"
+      tags    = { Name = "s3-vpc-endpoint" }
     },
     sqs = {
       service             = "sqs"
@@ -27,16 +27,16 @@ module "interface_endpoints" {
 module "gateway_endpoint" {
   source = "../../"
 
-  vpc_id             = module.vpc.vpc_id
-  security_group_ids = [""]
-  environment        = var.environment
+  vpc_id                           = module.vpc.vpc_id
+  environment                      = var.environment
+  is_create_default_security_group = false
   endpoints = {
     s3 = {
       # gateway endpoint
-      service_type        = "Gateway"
-      route_table_ids     = ["rtb-xxxxxxxxxx","rtb-xxxxxxxxxxx"]
-      service             = "s3"
-      tags                = { Name = "s3-vpc-endpoint" }
+      service_type    = "Gateway"
+      route_table_ids = ["rtb-xxxxxxxxxx", "rtb-xxxxxxxxxx"]
+      service         = "s3"
+      tags            = { Name = "s3-vpc-endpoint" }
     }
   }
 

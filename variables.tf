@@ -21,6 +21,12 @@ variable "security_group_ids" {
   default     = []
 }
 
+variable "is_create_default_security_group" {
+  description = "Whether or not create default security group for all endpoint"
+  type        = bool
+  default     = true
+}
+
 variable "subnet_ids" {
   description = "Default subnets IDs to associate with the VPC endpoints"
   type        = list(string)
